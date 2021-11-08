@@ -1,0 +1,17 @@
+ApiServer:
+    Port:
+MongoDB:
+    URI:
+    DB:
+InfChannels:
+    Mail:
+        From: noreply@informer.com
+        SMTP:
+            Addr: 127.0.0.1
+            Port: 25
+            User: testuser
+            Pass: secret
+    Telegram:
+        Token: 2017207256:AAFJkKdS11gGTl1Q31C_3Amt2rKxV1u2Nls
+GRPC:
+    Port: 50051

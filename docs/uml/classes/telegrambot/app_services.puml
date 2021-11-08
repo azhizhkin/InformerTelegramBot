@@ -1,0 +1,24 @@
+@startuml app_services
+package appservices <<Frame>> {
+    interface ConfigReader{
+        + GetAppConfig():AppConfig{}
+    }
+    class gRPCmessaging
+    class TelegramBotService{
+        + SendMessage(Name, Message)
+        + MakeMenu()
+        + Run()
+        + Stop()
+    }
+    class telebot 
+    TelegramBotService .> telebot
+
+    /'
+    interface TelegramBotService{
+        + Start()
+        + Stop()
+        + SetOnStartCommandHandle()
+    }
+    '/
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml Implementation interfaces in infrastructure
+!include infrastructure.puml
+!include app_services.puml
+
+infrastructure --[hidden]-- appservices
+
+FigConfigReader .|> ConfigReader
+EchoHTTPserver .|> HTTPAPIServer
+TelebotTGbot .|> TelegramBot
+MongoRepository .|> TelegramUsersRepository
+
+@enduml

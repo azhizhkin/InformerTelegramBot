@@ -1,0 +1,10 @@
+@startuml Infrastructure level
+package infrastructure <<Frame>>{
+    class FigConfigReader
+    class GomailMailSender
+    class EchoHTTPserver
+    class TelegramBotGRPC
+    class MongoRepository
+}
+@enduml
+

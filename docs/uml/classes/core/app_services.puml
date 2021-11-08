@@ -1,0 +1,32 @@
+@startuml app_services 
+package appservices{
+    interface ConfigReader{
+        + GetAppConfig():AppConfig{}
+    }
+    class gRPCAdminService{
+        +Run()
+        +Stop()
+    }
+    together {
+        class RESTAPIservice{
+            + Run()
+            + Stop()
+            + NewMessage()
+            + GetMsgStatus()
+            - makeAPI()    
+        }
+        interface HTTPAPIServer{
+            + StartServer()
+            + StopServer()
+            + SetNewMsgHandler(request:string, handle:func)
+            + SetMsgStatusHandler(request:string, handle:func)
+        }
+        RESTAPIservice .up.> HTTPAPIServer
+        class gRPCMessagingService{
+            +Run()
+            +Stop()
+        }
+    }
+} 
+@enduml
+

@@ -1,0 +1,10 @@
+@startuml app-domain_services
+!include domain_services.puml
+!include app_services.puml
+
+gRPCAdminService .down.> Admin
+gRPCAdminService .[hidden]right. RESTAPIservice
+gRPCMessagingService .down.> Reception
+RESTAPIservice .down.> Reception
+
+@enduml

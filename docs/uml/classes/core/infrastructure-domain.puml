@@ -1,0 +1,13 @@
+@startuml Implementation interfaces in infrastructure
+!include infrastructure.puml
+!include domain.puml
+
+infrastructure -[hidden]- domain
+
+MongoRepository  ..down..|> MsgRepository
+MongoRepository  ..down..|> SubscrRepository
+
+GomailMailSender ..|> InfChannel
+TelegramBotGRPC ..|> InfChannel
+
+@enduml

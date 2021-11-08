@@ -1,0 +1,4 @@
+@startuml infrastructure
+class SQLiteRepository
+class FigConfigReader
+@enduml

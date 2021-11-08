@@ -1,0 +1,7 @@
+@startuml Total
+!include app-domain_services.puml 
+!include domain-services.puml
+!include infrastructure-domain.puml
+!include infrastructure-domain_serv.puml
+!include infrastructure-app_serv.puml
+@enduml

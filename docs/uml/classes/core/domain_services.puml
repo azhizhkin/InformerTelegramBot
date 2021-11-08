@@ -1,0 +1,41 @@
+@startuml Domain level services
+package domainservices <<Frame>>{
+    together {
+        class MsgReceptionMgr{
+            - validateMsg(incomingMesage):bool
+            - translateMessage(MessageReflection):Message
+        }
+        interface Reception {
+            + NewMessage(MessageReflection):result
+            + MsgStatus(string):result
+        }
+        class MessageReflection
+        MsgReceptionMgr .up.|> Reception
+        Reception .> MessageReflection
+    }
+    together {
+        class SenderService{
+            - []InfChannels
+            + Run():Error
+            - addInfChanel(InfChannel)
+            - getMsgSubscribers(Message)
+            - defineInfChannel(Message, Subscriber)
+            - getInfChannelByType(InfChType):InfChannel
+        }
+    }
+    together {
+        class AdminMgr{
+            - validateSubscr()
+        }        
+        interface Admin{
+            + AddSubscriber()
+            + UpdateSubscriber()
+            + AddSubscription()
+            + DelSubscription()
+            + GetMsgList()
+        }
+        AdminMgr .up.|> Admin
+    }
+}
+@enduml
+

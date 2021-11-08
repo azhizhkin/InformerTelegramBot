@@ -1,0 +1,13 @@
+@startuml domain
+package domain <<Frame>> {
+    class TelegramUserInfo{
+        + UserName
+        + UserID
+    }
+    interface TelegramUserInfoRepository{
+        + AddUser()
+        + GetUserID()
+    } 
+    TelegramUserInfo <.up. TelegramUserInfoRepository
+}
+@enduml
