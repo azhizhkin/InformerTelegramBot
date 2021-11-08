@@ -5,10 +5,10 @@ package appservices <<Frame>> {
     }
     class gRPCmessaging
     class TelegramBotService{
-        + SendMessage(Name, Message)
-        + MakeMenu()
         + Run()
         + Stop()
+        + SendMessage(Name, Message)
+        - makeMenu()
     }
     class telebot 
     TelegramBotService .> telebot

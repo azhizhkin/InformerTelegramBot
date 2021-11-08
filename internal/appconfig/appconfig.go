@@ -1,6 +1,7 @@
 package appconfig
 
 type AppConfig struct {
+	Token  string
 	SQLite struct {
 		File string
 	}
