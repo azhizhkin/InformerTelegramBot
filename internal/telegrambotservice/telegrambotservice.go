@@ -17,6 +17,12 @@ type TelegramBotService struct {
 	bot  *tb.Bot
 }
 
+type telegramRecipient string
+
+func (tu telegramRecipient) Recipient() string {
+	return string(tu)
+}
+
 func NewTelegramBotService(config *appconfig.AppConfig, repo domain.TelegramUserInfoRepository) *TelegramBotService {
 	s := TelegramBotService{
 		repo: repo,
@@ -58,4 +64,10 @@ func (s TelegramBotService) ShowUserID(m *tb.Message) {
 	} else {
 		s.bot.Send(m.Sender, "User unknown")
 	}
+}
+
+func (s TelegramBotService) SendMessage(userName string, text string) error {
+	userID := s.repo.GetUserID(userName)
+	_, err := s.bot.Send(telegramRecipient(userID), text)
+	return err
 }
