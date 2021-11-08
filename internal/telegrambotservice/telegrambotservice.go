@@ -49,6 +49,10 @@ func (s TelegramBotService) OnStartMessage(m *tb.Message) {
 		Name: m.Sender.Username,
 		ID:   strconv.Itoa(m.Sender.ID),
 	}
+	if s.repo.GetUserID(userInfo.Name) != "" {
+		s.bot.Send(m.Sender, "You can receive messages from InformerBot!")
+		return
+	}
 	err := s.repo.AddUserInfo(userInfo)
 	if err != nil {
 		s.bot.Send(m.Sender, fmt.Sprintf("Error adding user info:%v", err))
