@@ -20,9 +20,9 @@ type GRPCMessagingService struct {
 	grpcMsg.UnimplementedInformerBotMessagingServer
 }
 
-func NewGRPCMessagingService(appconfig *appconfig.AppConfig, botService *telegrambotservice.TelegramBotService, grpcServer *grpc.Server, lis *net.Listener) *GRPCMessagingService {
+func NewGRPCMessagingService(appConfig *appconfig.AppConfig, botService *telegrambotservice.TelegramBotService, grpcServer *grpc.Server, lis *net.Listener) *GRPCMessagingService {
 	service := GRPCMessagingService{
-		config:     appconfig,
+		config:     appConfig,
 		botService: botService,
 		server:     grpcServer,
 		lis:        lis,
@@ -30,9 +30,9 @@ func NewGRPCMessagingService(appconfig *appconfig.AppConfig, botService *telegra
 
 	return &service
 }
-func (s *GRPCMessagingService) NewMessage(ctx context.Context, msgPB *grpcMsg.Message) (*grpcMsg.MessageResponse, error) {
-	err := s.botService.SendMessage(msgPB.Username, msgPB.Text)
-	resp := grpcMsg.MessageResponse{}
+func (s *GRPCMessagingService) NewMessage(ctx context.Context, msgPb *grpcMsg.NewMessageRequest) (*grpcMsg.NewMessageResponse, error) {
+	err := s.botService.SendMessage(msgPb.Username, msgPb.Text)
+	resp := grpcMsg.NewMessageResponse{}
 	return &resp, err
 }
 

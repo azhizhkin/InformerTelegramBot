@@ -7,6 +7,7 @@ require (
 	github.com/kkyr/fig v0.3.0
 	github.com/mattn/go-sqlite3 v1.14.9
 	github.com/xlab/closer v0.0.0-20190328110542-03326addb7c2
+	go.uber.org/dig v1.13.0
 	google.golang.org/grpc v1.42.0
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/tucnak/telebot.v2 v2.4.0

@@ -1,4 +1,6 @@
 @startuml infrastructure
+package infrastructure <<Frame>>{
 class SQLiteRepository
 class FigConfigReader
+}
 @enduml

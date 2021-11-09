@@ -1,0 +1,8 @@
+@startuml infrastructure_impl
+!include infrastructure.puml
+!include domain.puml 
+!include app_services.puml
+
+FigConfigReader ..|> ConfigReader
+SQLiteRepository ..|> TelegramUserInfoRepository
+@enduml

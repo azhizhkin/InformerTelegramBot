@@ -11,14 +11,7 @@ package appservices <<Frame>> {
         - makeMenu()
     }
     class telebot 
+    gRPCmessaging .> TelegramBotService
     TelegramBotService .> telebot
-
-    /'
-    interface TelegramBotService{
-        + Start()
-        + Stop()
-        + SetOnStartCommandHandle()
-    }
-    '/
 }
 @enduml

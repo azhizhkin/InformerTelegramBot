@@ -1,0 +1,6 @@
+@startuml app-domain_services
+!include domain.puml
+!include app_services.puml
+
+TelegramBotService .down.>TelegramUserInfoRepository
+@enduml

@@ -18,7 +18,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InformerBotMessagingClient interface {
-	NewMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*MessageResponse, error)
+	NewMessage(ctx context.Context, in *NewMessageRequest, opts ...grpc.CallOption) (*NewMessageResponse, error)
 }
 
 type informerBotMessagingClient struct {
@@ -29,8 +29,8 @@ func NewInformerBotMessagingClient(cc grpc.ClientConnInterface) InformerBotMessa
 	return &informerBotMessagingClient{cc}
 }
 
-func (c *informerBotMessagingClient) NewMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*MessageResponse, error) {
-	out := new(MessageResponse)
+func (c *informerBotMessagingClient) NewMessage(ctx context.Context, in *NewMessageRequest, opts ...grpc.CallOption) (*NewMessageResponse, error) {
+	out := new(NewMessageResponse)
 	err := c.cc.Invoke(ctx, "/com.informertelegrambot.messaging.InformerBotMessaging/NewMessage", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -42,7 +42,7 @@ func (c *informerBotMessagingClient) NewMessage(ctx context.Context, in *Message
 // All implementations must embed UnimplementedInformerBotMessagingServer
 // for forward compatibility
 type InformerBotMessagingServer interface {
-	NewMessage(context.Context, *Message) (*MessageResponse, error)
+	NewMessage(context.Context, *NewMessageRequest) (*NewMessageResponse, error)
 	mustEmbedUnimplementedInformerBotMessagingServer()
 }
 
@@ -50,7 +50,7 @@ type InformerBotMessagingServer interface {
 type UnimplementedInformerBotMessagingServer struct {
 }
 
-func (UnimplementedInformerBotMessagingServer) NewMessage(context.Context, *Message) (*MessageResponse, error) {
+func (UnimplementedInformerBotMessagingServer) NewMessage(context.Context, *NewMessageRequest) (*NewMessageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NewMessage not implemented")
 }
 func (UnimplementedInformerBotMessagingServer) mustEmbedUnimplementedInformerBotMessagingServer() {}
@@ -67,7 +67,7 @@ func RegisterInformerBotMessagingServer(s grpc.ServiceRegistrar, srv InformerBot
 }
 
 func _InformerBotMessaging_NewMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Message)
+	in := new(NewMessageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func _InformerBotMessaging_NewMessage_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/com.informertelegrambot.messaging.InformerBotMessaging/NewMessage",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InformerBotMessagingServer).NewMessage(ctx, req.(*Message))
+		return srv.(InformerBotMessagingServer).NewMessage(ctx, req.(*NewMessageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

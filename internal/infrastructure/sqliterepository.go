@@ -5,8 +5,6 @@ import (
 
 	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
 	"github.com/AndreyZhizhkin/informertelegrambot/internal/domain"
-
-	_ "github.com/mattn/go-sqlite3"
 )
 
 type SQLiteRepository struct {
