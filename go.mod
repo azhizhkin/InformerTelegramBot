@@ -1,4 +1,4 @@
-module github.com/AndreyZhizhkin/informertelegrambot
+module github.com/azhizhkin/informertelegrambot
 
 go 1.17
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
+	"github.com/azhizhkin/informertelegrambot/internal/appconfig"
 	"github.com/jinzhu/copier"
 
 	"github.com/kkyr/fig"

@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/domain"
+	"github.com/azhizhkin/informertelegrambot/internal/appconfig"
+	"github.com/azhizhkin/informertelegrambot/internal/domain"
 
 	tb "gopkg.in/tucnak/telebot.v2"
 )

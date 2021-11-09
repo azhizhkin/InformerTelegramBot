@@ -3,8 +3,8 @@ package infrastructure
 import (
 	"database/sql"
 
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/domain"
+	"github.com/azhizhkin/informertelegrambot/internal/appconfig"
+	"github.com/azhizhkin/informertelegrambot/internal/domain"
 )
 
 type SQLiteRepository struct {

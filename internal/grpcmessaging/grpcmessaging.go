@@ -5,9 +5,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
-	grpcMsg "github.com/AndreyZhizhkin/informertelegrambot/internal/proto/com/informertelegrambot"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/telegrambotservice"
+	"github.com/azhizhkin/informertelegrambot/internal/appconfig"
+	grpcMsg "github.com/azhizhkin/informertelegrambot/internal/proto/com/informertelegrambot"
+	"github.com/azhizhkin/informertelegrambot/internal/telegrambotservice"
 	"google.golang.org/grpc"
 )
 

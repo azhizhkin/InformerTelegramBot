@@ -5,11 +5,11 @@ import (
 	"log"
 	"net"
 
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/appconfig"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/domain"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/grpcmessaging"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/infrastructure"
-	"github.com/AndreyZhizhkin/informertelegrambot/internal/telegrambotservice"
+	"github.com/azhizhkin/informertelegrambot/internal/appconfig"
+	"github.com/azhizhkin/informertelegrambot/internal/domain"
+	"github.com/azhizhkin/informertelegrambot/internal/grpcmessaging"
+	"github.com/azhizhkin/informertelegrambot/internal/infrastructure"
+	"github.com/azhizhkin/informertelegrambot/internal/telegrambotservice"
 
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/xlab/closer"

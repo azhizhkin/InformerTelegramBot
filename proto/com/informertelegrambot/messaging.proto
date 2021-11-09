@@ -4,7 +4,7 @@ syntax = "proto3";
 
 package com.informertelegrambot.messaging;
 
-option go_package = "github.com/AndreyZhizhkin/informertelegrambot/internal/proto;informertelegrambot";
+option go_package = "github.com/azhizhkin/informertelegrambot/internal/proto;informertelegrambot";
 
 message NewMessageRequest {
     string username = 1;
