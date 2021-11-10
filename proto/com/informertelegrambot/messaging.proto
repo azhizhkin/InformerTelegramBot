@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-//import "com/informer/common.proto";
-
 package com.informertelegrambot.messaging;
 
 option go_package = "github.com/azhizhkin/informertelegrambot/internal/proto;informertelegrambot";

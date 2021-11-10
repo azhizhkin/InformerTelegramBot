@@ -3,15 +3,33 @@ package appservices <<Frame>> {
     interface ConfigReader{
         + GetAppConfig():AppConfig{}
     }
-    class gRPCmessaging
+    class gRPCmessaging{
+        + Run()
+        + Stop()
+    }
     class TelegramBotService{
         + Run()
         + Stop()
         + SendMessage(Name, Message)
         - makeMenu()
     }
-    class telebot 
+    
+    package telebot <<Frame>>{
+        class Bot 
+    }
+
+    package grpc <<Frame>>{
+        class Server
+    }
+
+    package proto\com\informertelegrambot{
+        class UnimplementedInformerBotMessagingServer
+    }
+    
     gRPCmessaging .> TelegramBotService
-    TelegramBotService .> telebot
+    gRPCmessaging ..> Server
+    gRPCmessaging ..> UnimplementedInformerBotMessagingServer
+    TelegramBotService .> Bot
+        
 }
 @enduml
