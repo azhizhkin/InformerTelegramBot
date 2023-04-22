@@ -1,5 +1,0 @@
-Token:
-SQLite:
-    File: informertelegrambot.db
-GRPC:
-    Port: 50051
