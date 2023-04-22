@@ -40,11 +40,11 @@ func NewTelegramBotService(config *appconfig.AppConfig, repo domain.TelegramUser
 	return &s
 }
 
-func (s TelegramBotService) Run() {
+func (s *TelegramBotService) Run() {
 	s.bot.Start()
 }
 
-func (s TelegramBotService) OnStartMessage(m *tb.Message) {
+func (s *TelegramBotService) OnStartMessage(m *tb.Message) {
 	userInfo := domain.TelegramUserInfo{
 		Name: m.Sender.Username,
 		ID:   strconv.Itoa(m.Sender.ID),
@@ -61,7 +61,7 @@ func (s TelegramBotService) OnStartMessage(m *tb.Message) {
 	}
 }
 
-func (s TelegramBotService) ShowUserID(m *tb.Message) {
+func (s *TelegramBotService) ShowUserID(m *tb.Message) {
 	userID := s.repo.GetUserID(m.Sender.Username)
 	if userID != "" {
 		s.bot.Send(m.Sender, fmt.Sprintf("User ID is: %s", userID))
@@ -70,7 +70,7 @@ func (s TelegramBotService) ShowUserID(m *tb.Message) {
 	}
 }
 
-func (s TelegramBotService) SendMessage(userName string, text string) error {
+func (s *TelegramBotService) SendMessage(userName string, text string) error {
 	userID := s.repo.GetUserID(userName)
 	_, err := s.bot.Send(telegramRecipient(userID), text)
 	return err

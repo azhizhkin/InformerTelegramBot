@@ -31,7 +31,7 @@ func NewSQLiteRepository(config *appconfig.AppConfig) *SQLiteRepository {
 	return &rep
 }
 
-func (rep SQLiteRepository) AddUserInfo(userInfo domain.TelegramUserInfo) error {
+func (rep *SQLiteRepository) AddUserInfo(userInfo domain.TelegramUserInfo) error {
 	_, err := rep.DB.Exec("insert into tgusersinfo (name, ID) values ($1, $2)", userInfo.Name, userInfo.ID)
 	if err != nil {
 		return err
@@ -39,11 +39,13 @@ func (rep SQLiteRepository) AddUserInfo(userInfo domain.TelegramUserInfo) error 
 	return nil
 }
 
-func (rep SQLiteRepository) GetUserID(userName string) (userID string) {
+func (rep *SQLiteRepository) GetUserID(userName string) (userID string) {
 	row := rep.DB.QueryRow("select ID from tgusersinfo where name = $1", userName)
 	err := row.Scan(&userID)
 	if err != nil {
-		panic(err)
+		if err != sql.ErrNoRows {
+			panic(err)
+		}
 	}
 	return userID
 }
